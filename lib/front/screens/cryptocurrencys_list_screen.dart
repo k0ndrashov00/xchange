@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:xchange/back/cryptocurrencys_list_screen_back/bloc/cryptocurrencys_list_screen_bloc.dart';
+import 'package:xchange/front/screens/cryptocurrency_screen.dart';
 import 'package:xchange/front/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -79,6 +80,21 @@ class _CryptocurrencysListScreenState extends State<CryptocurrencysListScreen> {
                         color: secondTextColor
                       ),
                     ),
+                    trailing: IconButton(
+                      icon: Icon(
+                        Icons.arrow_forward_ios,
+                        size: MediaQuery.of(context).size.width * arrowForwardAndBackSize,
+                        color: arrowForwardAndBackColor,
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CryptocurrencyScreen(cryptocurrencyName: cryptocurrecyName)
+                          ),
+                        );
+                      }
+                    )
                   );
                 }
               ),

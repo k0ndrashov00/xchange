@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'cryptocurrency_model.g.dart';
+part 'first_cryptocurrency_model.g.dart';
 
 @JsonSerializable()
-class CryptocurrencyModel {
+class FirstCryptocurrencyModel {
   @JsonKey(name: 'IMAGEURL')
   final String cryptocurrencyImageUrl;
   @JsonKey(name: 'FROMSYMBOL')
@@ -11,7 +11,7 @@ class CryptocurrencyModel {
   @JsonKey(name: 'PRICE')
   final double cryptocurrencyPrice;
 
-  CryptocurrencyModel({
+  FirstCryptocurrencyModel({
     required this.cryptocurrencyImageUrl, 
     required this.cryptocurrencyName, 
     required this.cryptocurrencyPrice
@@ -19,6 +19,6 @@ class CryptocurrencyModel {
 
   String get fullCryptocurrencyImageUrl => 'https://www.cryptocompare.com/$cryptocurrencyImageUrl';
 
-  factory CryptocurrencyModel.fromJson(Map<String, dynamic> json) => _$CryptocurrencyModelFromJson(json);
-  Map<String, dynamic> toJson() => _$CryptocurrencyModelToJson(this);
+  factory FirstCryptocurrencyModel.fromJson(Map<String, dynamic> json) => _$FirstCryptocurrencyModelFromJson(json);
+  Map<String, dynamic> toJson() => _$FirstCryptocurrencyModelToJson(this);
 }
