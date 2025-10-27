@@ -1,21 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'first_cryptocurrency_model.dart';
+part of 'cryptocurrency_model_for_cryptocurrencys_list_screen.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-FirstCryptocurrencyModel _$FirstCryptocurrencyModelFromJson(
+CryptocurrencyModelForCryptocurrencysListScreen
+_$CryptocurrencyModelForCryptocurrencysListScreenFromJson(
   Map<String, dynamic> json,
-) => FirstCryptocurrencyModel(
+) => CryptocurrencyModelForCryptocurrencysListScreen(
   cryptocurrencyImageUrl: json['IMAGEURL'] as String,
   cryptocurrencyName: json['FROMSYMBOL'] as String,
   cryptocurrencyPrice: (json['PRICE'] as num).toDouble(),
 );
 
-Map<String, dynamic> _$FirstCryptocurrencyModelToJson(
-  FirstCryptocurrencyModel instance,
+Map<String, dynamic> _$CryptocurrencyModelForCryptocurrencysListScreenToJson(
+  CryptocurrencyModelForCryptocurrencysListScreen instance,
 ) => <String, dynamic>{
   'IMAGEURL': instance.cryptocurrencyImageUrl,
   'FROMSYMBOL': instance.cryptocurrencyName,

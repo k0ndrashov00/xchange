@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:xchange/back/cryptocurrency_screen_back/second_api_requets.dart';
-import 'package:xchange/back/cryptocurrency_screen_back/second_cryptocurrency_model.dart';
+import 'package:xchange/back/cryptocurrency_screen_back/api_requets_for_cryptocurrency_screen.dart';
+import 'package:xchange/back/cryptocurrency_screen_back/cryptocurrency_model_for_cryptocurrency_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'cryptocurrency_screen_event.dart';
@@ -14,7 +14,7 @@ class CryptocurrencyScreenBloc extends Bloc<CryptocurrencyScreenEvent, Cryptocur
         if (state is! CryptocurrencyDataLoaded) {
           emit(CryptocurrencyDataLoading());
         }
-        final cryptocurrencyData = await SecondApiRequets(cryptocurrencyName: event.cryptocurrencyName).secondApiRequest().timeout(
+        final cryptocurrencyData = await ApiRequetsForCryptocurrencyScreen(cryptocurrencyName: event.cryptocurrencyName).apiRequetsForCryptocurrencyScreen().timeout(
           Duration(seconds: 5),
           onTimeout: () {
             throw TimeoutException;

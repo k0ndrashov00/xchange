@@ -64,7 +64,7 @@ class _CryptocurrencyScreenState extends State<CryptocurrencyScreen> {
                 cryptocurrencyScreenBlocInstance.add(LoadCryptocurrencyData(cryptocurrencyName: widget.cryptocurrencyName, completer: completer));
                 return completer.future;
               },
-              child: Placeholder() //TODO
+              child: const Placeholder() //TODO
             );
           }
           if (state is CryptocurrencyDataLoadingFailure) {

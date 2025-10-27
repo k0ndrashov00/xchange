@@ -7,7 +7,7 @@ class CryptocurrencysListInitial extends CryptocurrencysListScreenState {}
 class CryptocurrencysListLoading extends CryptocurrencysListScreenState {}
 
 class CryptocurrencysListLoaded extends CryptocurrencysListScreenState {
-  final List<FirstCryptocurrencyModel> cryptocurrencysList;
+  final List<CryptocurrencyModelForCryptocurrencysListScreen> cryptocurrencysList;
 
   CryptocurrencysListLoaded({required this.cryptocurrencysList});
 }

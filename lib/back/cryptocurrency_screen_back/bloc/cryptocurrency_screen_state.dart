@@ -7,7 +7,7 @@ class CryptocurrencyDataInitial extends CryptocurrencyScreenState {}
 class CryptocurrencyDataLoading extends CryptocurrencyScreenState {}
 
 class CryptocurrencyDataLoaded extends CryptocurrencyScreenState {
-  final SecondCryptocurrencyModel cryptocurrencyData;
+  final CryptocurrencyModelForCryptocurrencyScreen cryptocurrencyData;
 
   CryptocurrencyDataLoaded({required this.cryptocurrencyData});
 }

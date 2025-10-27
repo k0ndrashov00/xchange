@@ -1,13 +1,11 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'second_cryptocurrency_model.g.dart';
+part 'cryptocurrency_model_for_cryptocurrency_screen.g.dart';
 
 @JsonSerializable()
-class SecondCryptocurrencyModel {
+class CryptocurrencyModelForCryptocurrencyScreen {
   @JsonKey(name: 'IMAGEURL')
   final String cryptocurrencyImageUrl;
-  @JsonKey(name: 'FROMSYMBOL')
-  final String cryptocurrencyName;
   @JsonKey(name: 'PRICE')
   final double cryptocurrencyPrice;
   @JsonKey(name: 'HIGH24HOUR')
@@ -15,9 +13,8 @@ class SecondCryptocurrencyModel {
   @JsonKey(name: 'LOW24HOUR')
   final double cryptocurrencyLow24Hour;
 
-  SecondCryptocurrencyModel({
-    required this.cryptocurrencyImageUrl, 
-    required this.cryptocurrencyName, 
+  CryptocurrencyModelForCryptocurrencyScreen({
+    required this.cryptocurrencyImageUrl,
     required this.cryptocurrencyPrice,
     required this.cryptocurrencyHigh24Hour,
     required this.cryptocurrencyLow24Hour
@@ -25,6 +22,6 @@ class SecondCryptocurrencyModel {
 
   String get fullCryptocurrencyImageUrl => 'https://www.cryptocompare.com/$cryptocurrencyImageUrl';
 
-  factory SecondCryptocurrencyModel.fromJson(Map<String, dynamic> json) => _$SecondCryptocurrencyModelFromJson(json);
-  Map<String, dynamic> toJson() => _$SecondCryptocurrencyModelToJson(this);
+  factory CryptocurrencyModelForCryptocurrencyScreen.fromJson(Map<String, dynamic> json) => _$CryptocurrencyModelForCryptocurrencyScreenFromJson(json);
+  Map<String, dynamic> toJson() => _$CryptocurrencyModelForCryptocurrencyScreenToJson(this);
 }
