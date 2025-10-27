@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:xchange/back/cryptocurrencys_list_screen_back/bloc/cryptocurrencys_list_screen_bloc.dart';
 import 'package:xchange/front/screens/cryptocurrency_screen.dart';
@@ -36,68 +34,71 @@ class _CryptocurrencysListScreenState extends State<CryptocurrencysListScreen> {
             color: firstTextColor
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.refresh_rounded,
+              size: MediaQuery.of(context).size.width * RefreshIconSize,
+              color: RefreshIconColor,
+            ),
+            onPressed: () {
+              cryptocurrencysListScreenBlocInstance.add(LoadCryptocurrencysList());
+            }
+          )
+        ]
       ),
       backgroundColor: backgroundColor,
       body: BlocBuilder<CryptocurrencysListScreenBloc, CryptocurrencysListScreenState>(
         bloc: cryptocurrencysListScreenBlocInstance,
         builder: (context, state) {
           if (state is CryptocurrencysListLoaded) {
-            return RefreshIndicator(
-              backgroundColor: backgroundRefreshIndicatorColor,
-              color: refreshIndicatorColor,
-              onRefresh: () async {
-                final completer = Completer();
-                cryptocurrencysListScreenBlocInstance.add(LoadCryptocurrencysList(completer: completer));
-                return completer.future;
-              },
-              child: ListView.separated(
-                itemCount: state.cryptocurrencysList.length,
-                separatorBuilder: (context, index) => Divider(color: separatorColor),
-                itemBuilder: (context, index) {
-                  final cryptocurrencyAllInfo = state.cryptocurrencysList[index];
-                  final cryptocurrencyImageUrl = cryptocurrencyAllInfo.fullCryptocurrencyImageUrl;
-                  final cryptocurrecyName = cryptocurrencyAllInfo.cryptocurrencyName;
-                  final cryptocurrencyPrice = cryptocurrencyAllInfo.cryptocurrencyPrice;
-                  return ListTile(
-                    leading: Image.network(
-                      width: MediaQuery.of(context).size.width * imageSize,
-                      height: MediaQuery.of(context).size.width * imageSize,
-                      cryptocurrencyImageUrl
+            return ListView.separated(
+              itemCount: state.cryptocurrencysList.length,
+              separatorBuilder: (context, index) => Divider(color: separatorColor),
+              itemBuilder: (context, index) {
+                final cryptocurrencyAllInfo = state.cryptocurrencysList[index];
+                final cryptocurrencyImageUrl = cryptocurrencyAllInfo.fullCryptocurrencyImageUrl;
+                final cryptocurrecyName = cryptocurrencyAllInfo.cryptocurrencyName;
+                final cryptocurrencyPrice = cryptocurrencyAllInfo.cryptocurrencyPrice;
+                return ListTile(
+                  leading: Image.network(
+                    width: MediaQuery.of(context).size.width * firstImageSize,
+                    height: MediaQuery.of(context).size.width * firstImageSize,
+                    cryptocurrencyImageUrl
+                  ),
+                  title: Text(
+                    cryptocurrecyName,
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * secondTextSize,
+                      fontWeight: fontWeight,
+                      color: firstTextColor
                     ),
-                    title: Text(
-                      cryptocurrecyName,
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * secondTextSize,
-                        fontWeight: fontWeight,
-                        color: firstTextColor
-                      ),
+                  ),
+                  subtitle: Text(
+                    cryptocurrencyPrice.toStringAsFixed(2),
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * thirdTextSize,
+                      fontWeight: fontWeight,
+                      color: secondTextColor
                     ),
-                    subtitle: Text(
-                      cryptocurrencyPrice.toStringAsFixed(2),
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * thirdTextSize,
-                        fontWeight: fontWeight,
-                        color: secondTextColor
-                      ),
+                  ),
+                  trailing: IconButton(
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      size: MediaQuery.of(context).size.width * arrowForwardAndBackIconSize,
+                      color: arrowForwardAndBackIconColor,
                     ),
-                    trailing: IconButton(
-                      icon: Icon(
-                        Icons.arrow_forward_ios,
-                        size: MediaQuery.of(context).size.width * arrowForwardAndBackSize,
-                        color: arrowForwardAndBackColor,
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CryptocurrencyScreen(cryptocurrencyName: cryptocurrecyName)
-                          ),
-                        );
-                      }
-                    )
-                  );
-                }
-              ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CryptocurrencyScreen(cryptocurrencyName: cryptocurrecyName)
+                        ),
+                      );
+                    }
+                  )
+                );
+              }
             );
           }
           if (state is CryptocurrencysListLoadingFailure) {
@@ -123,7 +124,7 @@ class _CryptocurrencysListScreenState extends State<CryptocurrencysListScreen> {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.width * 0.1),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: buttonBackgroundColor),
+                    style: ElevatedButton.styleFrom(backgroundColor: tryAgainButtonBackgroundColor),
                     child: Text(
                       'Try again now', 
                       style: TextStyle(

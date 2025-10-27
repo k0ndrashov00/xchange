@@ -23,8 +23,6 @@ class CryptocurrencyScreenBloc extends Bloc<CryptocurrencyScreenEvent, Cryptocur
         emit(CryptocurrencyDataLoaded(cryptocurrencyData: cryptocurrencyData));
       } catch (e) {
         emit(CryptocurrencyDataLoadingFailure());
-      } finally {
-        event.completer?.complete();
       }
     });
   }

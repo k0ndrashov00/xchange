@@ -23,8 +23,6 @@ class CryptocurrencysListScreenBloc extends Bloc<CryptocurrencysListScreenEvent,
         emit(CryptocurrencysListLoaded(cryptocurrencysList: cryptocurrencysList));
       } catch (e) {
         emit(CryptocurrencysListLoadingFailure());
-      } finally {
-        event.completer?.complete();
       }
     });
   }
