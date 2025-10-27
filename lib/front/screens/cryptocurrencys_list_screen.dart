@@ -38,8 +38,8 @@ class _CryptocurrencysListScreenState extends State<CryptocurrencysListScreen> {
           IconButton(
             icon: Icon(
               Icons.refresh_rounded,
-              size: MediaQuery.of(context).size.width * RefreshIconSize,
-              color: RefreshIconColor,
+              size: MediaQuery.of(context).size.width * refreshIconSize,
+              color: refreshIconColor,
             ),
             onPressed: () {
               cryptocurrencysListScreenBlocInstance.add(LoadCryptocurrencysList());

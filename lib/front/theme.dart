@@ -12,8 +12,8 @@ const FontWeight fontWeight = FontWeight.w700;
 const Color firstTextColor = Colors.white;
 const Color secondTextColor = Color.fromARGB(255, 128, 128, 128);
 
-const double RefreshIconSize = 0.06;
-const Color RefreshIconColor = Colors.white;
+const double refreshIconSize = 0.06;
+const Color refreshIconColor = Colors.white;
 
 const double circularProgressIndicatorSize = 0.1;
 const Color circularProgressIndicatorColor = Color.fromARGB(255, 245, 189, 31);

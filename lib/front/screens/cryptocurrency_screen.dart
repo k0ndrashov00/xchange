@@ -52,8 +52,8 @@ class _CryptocurrencyScreenState extends State<CryptocurrencyScreen> {
           IconButton(
             icon: Icon(
               Icons.refresh_rounded,
-              size: MediaQuery.of(context).size.width * RefreshIconSize,
-              color: RefreshIconColor,
+              size: MediaQuery.of(context).size.width * refreshIconSize,
+              color: refreshIconColor,
             ),
             onPressed: () {
               cryptocurrencyScreenBlocInstance.add(LoadCryptocurrencyData(cryptocurrencyName: widget.cryptocurrencyName));
