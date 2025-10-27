@@ -79,7 +79,7 @@ class _CryptocurrencyScreenState extends State<CryptocurrencyScreen> {
                     SizedBox(height: 10),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.width * 0.35,
                     decoration: BoxDecoration(
                       color: cryptocurrencyInfoBackgroundColor,
                       borderRadius: BorderRadius.circular(10),
