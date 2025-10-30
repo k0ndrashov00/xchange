@@ -45,14 +45,14 @@ class CryptocurrencysListWidget extends StatelessWidget {
           trailing: IconButton(
             icon: Icon(
               Icons.arrow_forward_ios,
-              size: MediaQuery.of(context).size.width * arrowForwardAndBackIconSize,
-              color: arrowForwardAndBackIconColor,
+              size: MediaQuery.of(context).size.width * arrowForwardIconSize,
+              color: arrowForwardIconColor,
             ),
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CryptocurrencyScreen(cryptocurrencyName: cryptocurrecyName)
+                  builder: (context) => CryptocurrencyScreen(cryptocurrencyName: cryptocurrecyName, cryptocurrencysList: state.cryptocurrencysList)
                 ),
               );
             }

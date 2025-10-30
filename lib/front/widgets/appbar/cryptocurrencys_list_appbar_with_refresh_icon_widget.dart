@@ -30,8 +30,8 @@ class CryptocurrencysListAppbarWithRefreshIconWidget extends StatelessWidget imp
         IconButton(
           icon: Icon(
             Icons.refresh_rounded,
-            size: MediaQuery.of(context).size.width * refreshIconSize,
-            color: refreshIconColor,
+            size: MediaQuery.of(context).size.width * refreshAndHomeIconSize,
+            color: refreshAndHomeIconColor,
           ),
           onPressed: () {
             cryptocurrencysListScreenBlocInstance.add(LoadCryptocurrencysList());

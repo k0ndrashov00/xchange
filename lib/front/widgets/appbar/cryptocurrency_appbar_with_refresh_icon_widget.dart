@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:xchange/back/cryptocurrency_screen_back/bloc/cryptocurrency_screen_bloc.dart';
 import 'package:xchange/front/screens/cryptocurrency_screen.dart';
+import 'package:xchange/front/screens/cryptocurrencys_list_screen.dart';
 import 'package:xchange/front/theme.dart';
 
 class CryptocurrencyAppbarWithRefreshIconWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -31,20 +32,25 @@ class CryptocurrencyAppbarWithRefreshIconWidget extends StatelessWidget implemen
       ),
       leading: IconButton(
         icon: Icon(
-          Icons.arrow_back_ios,
-          size: MediaQuery.of(context).size.width * arrowForwardAndBackIconSize,
-          color: arrowForwardAndBackIconColor,
+          Icons.home,
+          size: MediaQuery.of(context).size.width * refreshAndHomeIconSize,
+          color: refreshAndHomeIconColor,
         ),
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CryptocurrencysListScreen()
+            ),
+          );
         }
       ),
       actions: [
         IconButton(
           icon: Icon(
             Icons.refresh_rounded,
-            size: MediaQuery.of(context).size.width * refreshIconSize,
-            color: refreshIconColor,
+            size: MediaQuery.of(context).size.width * refreshAndHomeIconSize,
+            color: refreshAndHomeIconColor,
           ),
           onPressed: () {
             cryptocurrencyScreenBlocInstance.add(LoadCryptocurrencyData(cryptocurrencyName: widget.cryptocurrencyName));
